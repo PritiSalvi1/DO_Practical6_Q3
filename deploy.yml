@@ -1,0 +1,24 @@
+- name: practical 6 question 3
+  hosts: localhost
+  gather_facts: no
+  vars:
+    app_dir: /home/do_practical6/do_p6_quest3v1
+  tasks:
+    - name: Step 1 - Starting the Node.js application
+      debug:
+        msg: "Starting the Node.js application..."
+
+    - name: Step 2 - Run the Node.js app in background
+      command: nohup node {{ app_dir }}/app.js > output.log 2>&1 &
+      args:
+        chdir: "{{ app_dir }}"
+      register: result
+      changed_when: result.rc == 0
+
+    - name: Step 3 - Node.js application is running
+      debug:
+        msg: "Node.js application is now running in the background."
+
+    - name: Step 4 - Startup complete
+      debug:
+        msg: "Startup complete. Check output.log in {{ app_dir }} for logs."
