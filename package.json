@@ -1,0 +1,11 @@
+{
+  "name": "nodejs-app",
+  "version": "1.0.0",
+  "description": "A simple NodeJS app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Priti Salvi",
+  "license": "MIT"
+}
